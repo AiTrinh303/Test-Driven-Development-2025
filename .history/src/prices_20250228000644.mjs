@@ -66,7 +66,6 @@ function createApp(database) {
     }
     return Math.ceil(baseCost * (1 - reduction / 100));
   }
-  
 
   function calculateReduction(date) {
     let reduction = 0;
@@ -83,10 +82,12 @@ function createApp(database) {
   function isHoliday(date) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
-      let holiday = Temporal.PlainDate.from(row.holiday);
+      let holiday = new Date(row.holiday);
       if (
         date &&
-        date.equals(holiday) 
+        date.getFullYear() === holiday.getFullYear() &&
+        date.getMonth() === holiday.getMonth() &&
+        date.getDate() === holiday.getDate()
       ) {
         return true;
       }
