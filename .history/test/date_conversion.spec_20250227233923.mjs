@@ -18,7 +18,14 @@ describe("Date conversion", () => {
   const instant = Temporal.Instant.fromEpochMilliseconds(42);
   const date = instant.toZonedDateTimeISO("UTC").toPlainDate();
 
+
   it("Date -> PlainDate", () => {
-    expect(date.equals(new Temporal.PlainDate(1970, 1, 1))).to.be.true;
+    expect(
+      new Date(42)Temporal.Instant.fromEpochMilliseconds(42)
+        .toTemporalInstant()
+        .toZonedDateTimeISO("UTC")
+        .toPlainDate()
+        .equals(new Temporal.PlainDate(1970, 1, 1)),
+    ).to.be.true;
   });
 });

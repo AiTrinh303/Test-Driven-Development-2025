@@ -12,13 +12,20 @@ describe("Date conversion", () => {
   });
 
   it("Date -> Instant", () => {
-    expect(new Date(42).toTemporalInstant().equals(Temporal.Instant.fromEpochMilliseconds(42))).to.be.true;
+    expect((new Date(42).toTemporalInstant().equals(Temporal.Instant.fromEpochMilliseconds(42))).to.be.true;
   });
 
   const instant = Temporal.Instant.fromEpochMilliseconds(42);
   const date = instant.toZonedDateTimeISO("UTC").toPlainDate();
 
+
   it("Date -> PlainDate", () => {
-    expect(date.equals(new Temporal.PlainDate(1970, 1, 1))).to.be.true;
+    expect(
+      new Date(42)
+        .toTemporalInstant()
+        .toZonedDateTimeISO("UTC")
+        .toPlainDate()
+        .equals(new Temporal.PlainDate(1970, 1, 1)),
+    ).to.be.true;
   });
 });

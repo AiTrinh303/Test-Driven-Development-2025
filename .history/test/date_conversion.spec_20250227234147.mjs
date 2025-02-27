@@ -19,6 +19,11 @@ describe("Date conversion", () => {
   const date = instant.toZonedDateTimeISO("UTC").toPlainDate();
 
   it("Date -> PlainDate", () => {
-    expect(date.equals(new Temporal.PlainDate(1970, 1, 1))).to.be.true;
+    expect(
+      instant
+        .toZonedDateTimeISO("UTC")
+        .toPlainDate()
+        .equals(new Temporal.PlainDate(1970, 1, 1)),
+    ).to.be.true;
   });
 });
